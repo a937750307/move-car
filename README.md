@@ -31,6 +31,6 @@
 - [QRCode.js](https://github.com/davidshimjs/qrcodejs) 二维码生成
 - Canvas API 绘制可打印卡片
 
-# 截图
+## 截图
 
 ![截图](截图.jpg)
