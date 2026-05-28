@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>挪车二维码生成器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="qrcode.min.js"></script>
+<base target="_blank">
+</head>
+<body>
+    <div class="generator-container">
+        <!-- 输入表单 -->
+        <div class="generator-box" id="input-box">
+            <h2><i class="fa-solid fa-qrcode"></i> 挪车二维码生成</h2>
+            <form id="qrForm">
+                <div class="form-group">
+                    <label for="plate"><i class="fa-solid fa-car"></i> 车牌</label>
+                    <input type="text" id="plate" name="plate" required placeholder="输入车牌号" oninput="this.value = this.value.toUpperCase()">
+                </div>
+                <div class="form-group">
+                    <label for="phone"><i class="fa-solid fa-phone"></i> 电话</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="输入手机号">
+                    <span id="phone-error" class="error-message"></span>
+                </div>
+                <div class="form-group mode-select" style="display:none;">
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="mode" value="call" checked>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit"><i class="fa-solid fa-qrcode"></i> 生成二维码</button>
+            </form>
+        </div>
+
+        <!-- 结果区域 -->
+        <div class="generator-box" id="result-box" style="display: none; text-align: center;">
+            <h2><i class="fa-solid fa-check-circle"></i> 二维码生成成功</h2>
+            <p><i class="fa-solid fa-car"></i> 车牌：<span id="result-plate"></span></p>
+            <p><i class="fa-solid fa-phone"></i> 电话：<span id="result-phone"></span></p>
+            <p id="result-mode" style="color: #666; font-size: 14px;"></p>
+            <div id="qrcode"></div>
+            <p class="hint"><i class="fa-solid fa-hand-pointer"></i> 点击下方按钮下载高清可打印卡片</p>
+            <div class="button-group">
+                <button onclick="downloadQR()" class="download-btn"><i class="fa-solid fa-download"></i> 下载可打印卡片</button>
+                <button onclick="resetForm()" class="reset-btn"><i class="fa-solid fa-rotate-left"></i> 重新生成</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <style>
+      .beian-bar{width:100%;background:#fff;padding:12px 0;text-align:center;font-size:14px;line-height:1.6;border-top:1px solid #eee}
+      .beian-pc{display:flex;justify-content:center;align-items:center;gap:20px}
+      .beian-disclaimer{color:#e74c3c;white-space:nowrap}
+      .beian-icp{color:#333;text-decoration:none;white-space:nowrap}
+      .beian-gongan{display:inline-flex;align-items:center;gap:6px;color:#333;text-decoration:none;white-space:nowrap}
+      .beian-gongan img{width:16px;height:16px}
+      @media(max-width:768px){.beian-pc{display:none}.beian-mobile{display:flex;flex-direction:column;align-items:center;gap:6px}.beian-mobile a,.beian-mobile span{display:block;line-height:1.8}}
+      @media(min-width:769px){.beian-mobile{display:none}}
+    </style>
+    <div class="beian-bar">
+      <div class="beian-pc">
+        <span class="beian-disclaimer">本站内容仅供学习和交流，非商业用途</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="beian-icp">浙ICP备2025187466号</a>
+        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33030402001483" target="_blank" rel="noopener noreferrer" class="beian-gongan">
+          <img src="https://www.937788.xyz/gonganbeian.png" alt="公安备案" onerror="this.style.display='none'">
+          浙公网安备33030402001483号
+        </a>
+      </div>
+      <div class="beian-mobile">
+        <span class="beian-disclaimer">本站内容仅供学习和交流，非商业用途</span>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="beian-icp">浙ICP备2025187466号</a>
+        <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33030402001483" target="_blank" rel="noopener noreferrer" class="beian-gongan">
+          <img src="https://www.937788.xyz/gonganbeian.png" alt="公安备案" onerror="this.style.display='none'">
+          浙公网安备33030402001483号
+        </a>
+      </div>
+    </div>
+</body>
+</html>

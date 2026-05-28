@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f7fa 0%, #e0e5ec 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.generator-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.generator-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 450px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.generator-box:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+h2 i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    position: relative;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+label i {
+    margin-right: 6px;
+    color: #3498db;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #e0e5ec;
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+/* 单选框样式 */
+.mode-select {
+    margin-bottom: 25px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 12px;
+}
+
+.radio-label {
+    flex: 1;
+    cursor: pointer;
+    margin: 0;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-label span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border: 2px solid #e0e5ec;
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 14px;
+    color: #666;
+    transition: all 0.3s ease;
+    gap: 6px;
+}
+
+.radio-label input[type="radio"]:checked + span {
+    border-color: #3498db;
+    background: #ebf5fb;
+    color: #2980b9;
+    font-weight: 600;
+}
+
+.radio-label span i {
+    margin: 0;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    margin: 6px 0;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.35);
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    box-shadow: 0 12px 25px rgba(52, 152, 219, 0.45);
+    transform: translateY(-2px);
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.35);
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    box-shadow: 0 12px 25px rgba(46, 204, 113, 0.45);
+    transform: translateY(-2px);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    box-shadow: 0 8px 20px rgba(149, 165, 166, 0.35);
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
+    box-shadow: 0 12px 25px rgba(149, 165, 166, 0.45);
+    transform: translateY(-2px);
+}
+
+/* 结果页 */
+#qrcode {
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    display: inline-block;
+    border: 2px dashed #3498db;
+}
+
+#qrcode img {
+    display: block;
+    margin: 0 auto;
+}
+
+.hint {
+    color: #666;
+    font-size: 14px;
+    margin: 15px 0 5px;
+    line-height: 1.5;
+}
+
+.hint i {
+    color: #e74c3c;
+    margin-right: 4px;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    display: block;
+    margin-top: 6px;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+    .generator-box {
+        padding: 25px 20px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    input, button {
+        font-size: 15px;
+    }
+    .radio-label span {
+        font-size: 13px;
+        padding: 12px 8px;
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
